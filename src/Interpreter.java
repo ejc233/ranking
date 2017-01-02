@@ -3,8 +3,7 @@ import java.io.FileReader;
 
 /**
  * Top-level class that accepts inputdir and outdir as command-line arguments
- * and handles them appropriately. It reads the statements from the queries
- * file.
+ * and handles them appropriately.
  * 
  * @author echan
  */
@@ -20,7 +19,7 @@ public class Interpreter {
 
 			String line = null;
 			while ((line = inputReader.readLine()) != null) {
-				System.out.println(line + "hi");
+				System.out.println(line + " hi");
 			}
 
 			inputReader.close();
