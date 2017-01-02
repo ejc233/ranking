@@ -19,7 +19,7 @@ public class Interpreter {
 
 			String line = null;
 			while ((line = inputReader.readLine()) != null) {
-				System.out.println(line + " hi");
+				System.out.println(line + " hi test");
 			}
 
 			inputReader.close();
