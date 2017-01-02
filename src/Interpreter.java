@@ -24,32 +24,44 @@ public class Interpreter {
 			BufferedReader inputReader = new BufferedReader(new FileReader(inputFile));
 
 			String line = null;
-			ArrayList<String> ranked = new ArrayList<String>();
+			OrderedTree tree = new OrderedTree();
+			ArrayList<String> orderedList = new ArrayList<String>();
 			int count = 0;
 
 			while ((line = inputReader.readLine()) != null) {
 				count++;
-				ranked.add(count + ". " + line);
+				orderedList.add(count + ". " + line);
 			}
-			System.out.println("Ranks built.");
 
 			inputReader.close();
-			writeFile(outputFile, ranked);
-			System.out.println("File written.");
+
+			// ranked = tree.toList();
+
+			// Write the ranked list into the output file
+			writeFile(orderedList, outputFile);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static void writeFile(String output, ArrayList<String> ranked) throws IOException {
+	/**
+	 * Write the ordered list to a file.
+	 * 
+	 * @param orderedList
+	 *            the ordered list
+	 * @param output
+	 *            the output file
+	 * @throws IOException
+	 */
+	public static void writeFile(ArrayList<String> orderedList, String output) throws IOException {
 		File fout = new File(output);
 		FileOutputStream fos = new FileOutputStream(fout);
-
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
 
-		for (int i = 0; i < ranked.size(); i++) {
-			writer.write(ranked.get(i));
+		// Write each string in the ranked list one by one
+		for (int i = 0; i < orderedList.size(); i++) {
+			writer.write(orderedList.get(i));
 			writer.newLine();
 		}
 
