@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Top-level class that accepts input and output as command-line arguments and
@@ -24,24 +24,55 @@ public class Interpreter {
 			BufferedReader inputReader = new BufferedReader(new FileReader(inputFile));
 
 			String line = null;
-			OrderedTree tree = new OrderedTree();
-			ArrayList<String> orderedList = new ArrayList<String>();
-			int count = 0;
+			LinkedList orderedList = new LinkedList();
+
+			Scanner sc = new Scanner(System.in);
 
 			while ((line = inputReader.readLine()) != null) {
-				count++;
-				orderedList.add(count + ". " + line);
+				updateList(orderedList, line, sc);
 			}
 
 			inputReader.close();
-
-			// ranked = tree.toList();
+			sc.close();
 
 			// Write the ranked list into the output file
 			writeFile(orderedList, outputFile);
 
+			System.out.println("Write complete.");
+
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	private static void updateList(LinkedList orderedList, String line, Scanner sc) {
+		if (!orderedList.isEmpty()) {
+			int low = 0;
+			int high = orderedList.getSize() - 1;
+
+			while (low <= high) {
+				int mid = low + (high - low) / 2;
+
+				System.out.println(
+						"Do you prefer " + orderedList.get(mid) + " or " + line + "? (1 for left, 2 for right)");
+
+				String choice = sc.nextLine();
+
+				// old line is preferred
+				if (choice.equals("1")) {
+					low = mid + 1;
+
+				} else if (choice.equals("2")) {
+					high = mid - 1;
+				} else {
+					System.out.println("Invalid input. Please try again.");
+				}
+			}
+
+			orderedList.add(line, low);
+
+		} else {
+			orderedList.add(line);
 		}
 	}
 
@@ -54,15 +85,17 @@ public class Interpreter {
 	 *            the output file
 	 * @throws IOException
 	 */
-	public static void writeFile(ArrayList<String> orderedList, String output) throws IOException {
+	public static void writeFile(LinkedList orderedList, String output) throws IOException {
 		File fout = new File(output);
 		FileOutputStream fos = new FileOutputStream(fout);
 		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos));
 
 		// Write each string in the ranked list one by one
-		for (int i = 0; i < orderedList.size(); i++) {
+		for (int i = 0; i < orderedList.getSize(); i++) {
 			writer.write(orderedList.get(i));
-			writer.newLine();
+			if (i != orderedList.getSize() - 1) {
+				writer.newLine();
+			}
 		}
 
 		writer.close();
