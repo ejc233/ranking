@@ -5,6 +5,9 @@
  */
 public class LinkedList {
 
+	/**
+	 * Inner node class.
+	 */
 	private class Node {
 
 		private String data;
@@ -18,6 +21,9 @@ public class LinkedList {
 	private Node head, last;
 	private int size;
 
+	/**
+	 * Constructor.
+	 */
 	public LinkedList() {
 		this.size = 0;
 	}
