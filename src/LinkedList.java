@@ -28,6 +28,11 @@ public class LinkedList {
 		this.size = 0;
 	}
 
+	/**
+	 * Adds a string to the beginning of the linked list.
+	 * 
+	 * @param data
+	 */
 	public void addToBeginning(String data) {
 		Node temp = new Node(data);
 		if (head == null) {
