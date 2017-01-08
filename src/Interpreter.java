@@ -17,6 +17,7 @@ public class Interpreter {
 	public static String inputFile;
 	public static String outputFile;
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		inputFile = args[0];
 		outputFile = args[1];
@@ -27,6 +28,16 @@ public class Interpreter {
 			LinkedList orderedList = new LinkedList();
 
 			Scanner sc = new Scanner(System.in);
+
+			try {
+				while (!(line = inputReader.readLine()).equals("START")) {
+					orderedList.add(line);
+				}
+
+			} catch (NullPointerException e) {
+				System.out.println("No START found.");
+				inputReader = new BufferedReader(new FileReader(inputFile));
+			}
 
 			while ((line = inputReader.readLine()) != null) {
 				updateList(orderedList, line, sc);
