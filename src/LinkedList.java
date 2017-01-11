@@ -51,7 +51,6 @@ public class LinkedList {
 	 * 
 	 * @param data
 	 */
-
 	public void add(String data) {
 		Node temp = new Node(data);
 		if (head == null) {
@@ -65,6 +64,12 @@ public class LinkedList {
 		size++;
 	}
 
+	/**
+	 * Add a string to a specific index of a linked list.
+	 * 
+	 * @param data
+	 * @param index
+	 */
 	public void add(String data, int index) {
 		Node temp = new Node(data);
 		if (index < 0 || index > size) {
