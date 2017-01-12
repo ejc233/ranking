@@ -103,7 +103,7 @@ public class Interpreter {
 
 		// Write each string in the ranked list one by one
 		for (int i = 0; i < orderedList.getSize(); i++) {
-			writer.write(i + 1 + ". " + orderedList.get(i));
+			writer.write(orderedList.get(i));
 			if (i != orderedList.getSize() - 1) {
 				writer.newLine();
 			}
