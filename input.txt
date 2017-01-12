@@ -1,3 +1,4 @@
+La La Land
 Doctor Strange
 Captain America: Civil War
 Rogue One: A Star Wars Story
@@ -14,6 +15,7 @@ Sully
 Eddie the Eagle
 Finding Dory
 Florence Foster Jenkins
+Moonlight
 The Nice Guys
 Sing Street
 Fantastic Beasts and Where to Find Them
@@ -37,8 +39,12 @@ Eye in the Sky
 Hello, My Name Is Doris
 13 Hours: The Secret Soldiers of Benghazi
 Passengers
+Why Him?
 Mr. Right
 Hail, Caesar!
+The Girl on the Train
+Other People
+Queen of Katwe
 War Dogs
 Storks
 Triple 9
@@ -68,6 +74,7 @@ Barbershop: The Next Cut
 The Lobster
 Now You See Me 2
 Demolition
+Allied
 Pride and Prejudice and Zombies
 Teenage Mutant Ninja Turtles: Out of the Shadows
 Sausage Party
@@ -86,6 +93,3 @@ Masterminds
 Independence Day: Resurgence
 Gods of Egypt
 START
-Other People
-The Girl on the Train
-Why Him?
