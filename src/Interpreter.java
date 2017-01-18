@@ -93,7 +93,7 @@ public class Interpreter {
 	 * @param orderedList
 	 *            the ordered list
 	 * @param output
-	 *            the output file
+	 *            the output file path
 	 * @throws IOException
 	 */
 	public static void writeFile(LinkedList orderedList, String output) throws IOException {
