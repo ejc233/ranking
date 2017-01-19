@@ -56,6 +56,13 @@ public class Interpreter {
 		}
 	}
 
+	/**
+	 * Update the list with a new line.
+	 * 
+	 * @param orderedList
+	 * @param line
+	 * @param sc
+	 */
 	private static void updateList(LinkedList orderedList, String line, Scanner sc) {
 		if (!orderedList.isEmpty()) {
 			int low = 0;
