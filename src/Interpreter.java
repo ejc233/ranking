@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -6,6 +8,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * Top-level class that accepts input and output as command-line arguments and
@@ -73,6 +80,20 @@ public class Interpreter {
 			while (low <= high) {
 				int mid = low + (high - low) / 2;
 
+				JFrame frame = new JFrame("Which do you prefer?");
+				frame.setVisible(true);
+				frame.setSize(400, 100);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+				JPanel panel = new JPanel();
+				frame.add(panel);
+				JButton leftButton = new JButton(orderedList.get(mid));
+				panel.add(leftButton);
+				leftButton.addActionListener(new Action1());
+				JButton rightButton = new JButton(line);
+				panel.add(rightButton);
+				rightButton.addActionListener(new Action2());
+
 				System.out.println(
 						"Do you prefer " + orderedList.get(mid) + " or " + line + "? (1 for left, 2 for right)");
 
@@ -93,6 +114,31 @@ public class Interpreter {
 
 		} else {
 			orderedList.add(line);
+		}
+	}
+
+	static class Action1 implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JFrame frame2 = new JFrame("Clicked");
+			frame2.setVisible(true);
+			frame2.setSize(200, 200);
+			JLabel label = new JLabel("you clicked me");
+			JPanel panel = new JPanel();
+			frame2.add(panel);
+			panel.add(label);
+		}
+	}
+
+	static class Action2 implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JFrame frame3 = new JFrame("OKNO 3");
+			frame3.setVisible(true);
+			frame3.setSize(200, 200);
+
+			JLabel label = new JLabel("kliknales");
+			JPanel panel = new JPanel();
+			frame3.add(panel);
+			panel.add(label);
 		}
 	}
 
