@@ -41,6 +41,7 @@ public class Interpreter {
 			} catch (NullPointerException e) {
 				System.out.println("No START found.");
 				inputReader = new BufferedReader(new FileReader(inputFile));
+				orderedList = new LinkedList();
 			}
 
 			while ((line = inputReader.readLine()) != null) {
@@ -95,7 +96,6 @@ public class Interpreter {
 		} else {
 			orderedList.add(line);
 			System.out.println("The ranking now has 1 item.");
-
 		}
 	}
 

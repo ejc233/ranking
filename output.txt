@@ -1,4 +1,3 @@
-Test
 La La Land
 Doctor Strange
 Captain America: Civil War
@@ -93,3 +92,7 @@ Suicide Squad
 Masterminds
 Independence Day: Resurgence
 Gods of Egypt
+Hidden Figures
+Patriots Day
+A Monster Calls
+Manchester by the Sea

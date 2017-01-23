@@ -20,7 +20,7 @@ public class Selector extends JFrame implements ActionListener {
 		JPanel panel = new JPanel();
 		this.add(panel);
 
-		leftButton = new JButton(mid + ". " + left);
+		leftButton = new JButton(mid + 1 + ". " + left);
 		panel.add(leftButton);
 		leftButton.addActionListener(this);
 		rightButton = new JButton(right);
