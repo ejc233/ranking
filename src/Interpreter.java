@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +22,8 @@ import javax.swing.JPanel;
 public class Interpreter {
 	public static String inputFile;
 	public static String outputFile;
+	public static boolean leftPicked = false;
+	public static boolean buttonPressed = false;
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
@@ -71,8 +72,9 @@ public class Interpreter {
 	 * @param line
 	 *            the line being added to the list
 	 * @param sc
+	 * @throws InterruptedException
 	 */
-	private static void updateList(LinkedList orderedList, String line, Scanner sc) {
+	private static void updateList(LinkedList orderedList, String line, Scanner sc) throws InterruptedException {
 		if (!orderedList.isEmpty()) {
 			int low = 0;
 			int high = orderedList.getSize() - 1;
@@ -80,65 +82,24 @@ public class Interpreter {
 			while (low <= high) {
 				int mid = low + (high - low) / 2;
 
-				JFrame frame = new JFrame("Which do you prefer?");
-				frame.setVisible(true);
-				frame.setSize(400, 100);
-				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-				JPanel panel = new JPanel();
-				frame.add(panel);
-				JButton leftButton = new JButton(orderedList.get(mid));
-				panel.add(leftButton);
-				leftButton.addActionListener(new Action1());
-				JButton rightButton = new JButton(line);
-				panel.add(rightButton);
-				rightButton.addActionListener(new Action2());
-
-				System.out.println(
-						"Do you prefer " + orderedList.get(mid) + " or " + line + "? (1 for left, 2 for right)");
-
-				String choice = sc.nextLine();
+				Selector sel = new Selector(orderedList.get(mid), line);
 
 				// old line is preferred
-				if (choice.equals("1")) {
+				if (sel.getLeftPicked()) {
 					low = mid + 1;
 
-				} else if (choice.equals("2")) {
-					high = mid - 1;
 				} else {
-					System.out.println("Invalid input. Please try again.");
+					high = mid - 1;
 				}
 			}
 
 			orderedList.add(line, low);
+			System.out.println("The ranking now has " + orderedList.getSize() + " items.");
 
 		} else {
 			orderedList.add(line);
-		}
-	}
+			System.out.println("The ranking now has 1 item.");
 
-	static class Action1 implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			JFrame frame2 = new JFrame("Clicked");
-			frame2.setVisible(true);
-			frame2.setSize(200, 200);
-			JLabel label = new JLabel("you clicked me");
-			JPanel panel = new JPanel();
-			frame2.add(panel);
-			panel.add(label);
-		}
-	}
-
-	static class Action2 implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			JFrame frame3 = new JFrame("OKNO 3");
-			frame3.setVisible(true);
-			frame3.setSize(200, 200);
-
-			JLabel label = new JLabel("kliknales");
-			JPanel panel = new JPanel();
-			frame3.add(panel);
-			panel.add(label);
 		}
 	}
 
