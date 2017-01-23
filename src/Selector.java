@@ -11,7 +11,7 @@ public class Selector extends JFrame implements ActionListener {
 	boolean buttonPressed = false;
 	boolean leftPicked = false;
 
-	public Selector(String left, String right) {
+	public Selector(int mid, String left, String right) {
 		this.setTitle("Which do you prefer?");
 		this.setVisible(true);
 		this.setSize(400, 100);
@@ -20,7 +20,7 @@ public class Selector extends JFrame implements ActionListener {
 		JPanel panel = new JPanel();
 		this.add(panel);
 
-		leftButton = new JButton(left);
+		leftButton = new JButton(mid + ". " + left);
 		panel.add(leftButton);
 		leftButton.addActionListener(this);
 		rightButton = new JButton(right);
@@ -32,6 +32,7 @@ public class Selector extends JFrame implements ActionListener {
 		if (e.getSource() == leftButton) {
 			leftPicked = true;
 		}
+
 		buttonPressed = true;
 	}
 

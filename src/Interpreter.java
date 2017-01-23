@@ -1,5 +1,3 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,9 +7,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 /**
  * Top-level class that accepts input and output as command-line arguments and
@@ -57,7 +53,7 @@ public class Interpreter {
 			// Write the ranked list into the output file
 			writeFile(orderedList, outputFile);
 
-			System.out.println("Write complete.");
+			JOptionPane.showMessageDialog(null, "Write complete.");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,7 +78,7 @@ public class Interpreter {
 			while (low <= high) {
 				int mid = low + (high - low) / 2;
 
-				Selector sel = new Selector(orderedList.get(mid), line);
+				Selector sel = new Selector(mid, orderedList.get(mid), line);
 
 				// old line is preferred
 				if (sel.getLeftPicked()) {
