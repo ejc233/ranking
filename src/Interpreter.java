@@ -62,12 +62,12 @@ public class Interpreter {
 	}
 
 	/**
-	 * Update the list with a new line.
+	 * Update the list with a new object.
 	 * 
 	 * @param orderedList
 	 *            the list being updated
 	 * @param line
-	 *            the line being added to the list
+	 *            the object being added to the list
 	 * @param sc
 	 * @throws InterruptedException
 	 */
@@ -79,13 +79,15 @@ public class Interpreter {
 			while (low <= high) {
 				int mid = low + (high - low) / 2;
 
+				// initiate build of frame with two choices
 				Selector sel = new Selector(mid, orderedList.get(mid), line);
 
-				// old line is preferred
 				if (sel.getLeftPicked()) {
+					// existing item is preferred
 					low = mid + 1;
 
 				} else {
+					// new item is preferred
 					high = mid - 1;
 				}
 			}

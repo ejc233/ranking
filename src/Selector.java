@@ -4,6 +4,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Frame class that represents two-button window for picking preferred object.
+ * 
+ * @author echan
+ */
 @SuppressWarnings("serial")
 public class Selector extends JFrame implements ActionListener {
 	JButton leftButton;
@@ -11,6 +16,16 @@ public class Selector extends JFrame implements ActionListener {
 	boolean buttonPressed = false;
 	boolean leftPicked = false;
 
+	/**
+	 * Constructor.
+	 * 
+	 * @param mid
+	 *            the ranked of the already ranked object
+	 * @param left
+	 *            the already ranked object
+	 * @param right
+	 *            the object being added to the ranking
+	 */
 	public Selector(int mid, String left, String right) {
 		this.setTitle("Which do you prefer?");
 		this.setVisible(true);
@@ -36,6 +51,13 @@ public class Selector extends JFrame implements ActionListener {
 		buttonPressed = true;
 	}
 
+	/**
+	 * Get whether the left object was picked.
+	 * 
+	 * @return whether the left object was picked
+	 * 
+	 * @throws InterruptedException
+	 */
 	public boolean getLeftPicked() throws InterruptedException {
 		while (!buttonPressed) {
 			Thread.sleep(200);

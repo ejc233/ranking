@@ -45,7 +45,7 @@ public class LinkedList {
 		}
 		size++;
 	}
-	
+
 	/**
 	 * Add a string to the end of the linked list.
 	 * 
