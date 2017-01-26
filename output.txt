@@ -8,14 +8,19 @@ Zootopia
 Hacksaw Ridge
 Arrival
 Hunt for the Wilderpeople
+Patriots Day
+Manchester by the Sea
 Fences
 Kung Fu Panda 3
 The Jungle Book
 Sully
 Eddie the Eagle
+Hidden Figures
 Finding Dory
 Florence Foster Jenkins
 Moonlight
+A Monster Calls
+Silence
 The Nice Guys
 Sing Street
 Fantastic Beasts and Where to Find Them
@@ -33,6 +38,7 @@ Kubo and the Two Strings
 Sing
 Everybody Wants Some!!
 Swiss Army Man
+Jackie
 Nocturnal Animals
 Deadpool
 Eye in the Sky
@@ -92,7 +98,3 @@ Suicide Squad
 Masterminds
 Independence Day: Resurgence
 Gods of Egypt
-Hidden Figures
-Patriots Day
-A Monster Calls
-Manchester by the Sea
