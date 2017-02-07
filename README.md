@@ -2,7 +2,7 @@
 
 ## Description
 
-Upon being provided inputs from the user, the program waits for user inputs to decide how to add to a list of rankings. Assuming strict prefeerences, the program efficiently adds elements to the ranking list in teh correct order in a systemic way.
+Upon being provided inputs from the user, the program waits for user inputs to decide how to add to a list of rankings. Assuming strict preferences, the program efficiently adds elements to the ranking list in teh correct order in a systemic way.
 
 
 ## Configuration
